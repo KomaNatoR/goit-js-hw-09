@@ -4,12 +4,6 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 
 const bodyTimer = ({ days, hours, minutes, seconds }) => `
-    <p><a href="index.html">Go back</a></p>
-
-    <input type="text" id="datetime-picker" />
-    <button type="button" data-start>Start</button>
-
-    <div class="timer">
       <div class="field">
         <span class="value" data-days>${days}</span>
         <span class="label">Days</span>
@@ -25,8 +19,7 @@ const bodyTimer = ({ days, hours, minutes, seconds }) => `
       <div class="field">
         <span class="value" data-seconds>${seconds}</span>
         <span class="label">Seconds</span>
-      </div>
-    </div>`;
+      </div>`;
 
 const refs = {
     startBtn: document.querySelector('[data-start]'),
@@ -34,8 +27,9 @@ const refs = {
 };
 
 let userData = 0;
-let newData = 0;
+let newData = new Date();
 
+// =================================== НЕ МОЄ =============================
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -43,7 +37,7 @@ const options = {
   minuteIncrement: 1,
     onClose(selectedDates) {
         userData = selectedDates[0].getTime();
-        newData = new Date();
+        // newData = new Date();
         if (userData < newData) {
             refs.startBtn.disabled = true;
             window.alert('Та ти успакойся!!!');
@@ -76,14 +70,15 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 };
 
+// =================================== МОЄ ======================================
 refs.startBtn.addEventListener('click', onStartClick);
 
 function onStartClick() {
     toggleStartButton();
-    setInterval(() => {
+    intervaId = setInterval(() => {
         
         const numberForCountTime = userData - newData;
-        document.body.innerHTML = bodyTimer(convertMs(numberForCountTime));
+        refs.mainDiv.innerHTML = bodyTimer(convertMs(numberForCountTime));
     }, 1000);
 
     // console.log(convertMs(numberForCountTime));
