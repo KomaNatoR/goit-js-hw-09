@@ -5,19 +5,19 @@ import "flatpickr/dist/flatpickr.min.css";
 
 const bodyTimer = ({ days, hours, minutes, seconds }) => `
       <div class="field">
-        <span class="value" data-days>${days}</span>
+        <span class="value" data-days>${String(days).length < 2? '0'+days:days}</span>
         <span class="label">Days</span>
       </div>
       <div class="field">
-        <span class="value" data-hours>${hours}</span>
+        <span class="value" data-hours>${String(hours).length < 2? '0'+hours:hours}</span>
         <span class="label">Hours</span>
       </div>
       <div class="field">
-        <span class="value" data-minutes>${minutes}</span>
+        <span class="value" data-minutes>${String(minutes).length < 2? '0'+minutes:minutes}</span>
         <span class="label">Minutes</span>
       </div>
       <div class="field">
-        <span class="value" data-seconds>${seconds}</span>
+        <span class="value" data-seconds>${String(seconds).length < 2? '0'+seconds:seconds}</span>
         <span class="label">Seconds</span>
       </div>`;
 
