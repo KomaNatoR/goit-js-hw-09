@@ -76,9 +76,13 @@ refs.startBtn.addEventListener('click', onStartClick);
 function onStartClick() {
     toggleStartButton();
     intervaId = setInterval(() => {
-        
-        const numberForCountTime = userData - newData;
-        refs.mainDiv.innerHTML = bodyTimer(convertMs(numberForCountTime));
+        newData = new Date();
+        const numberToCountTime = userData - newData;
+        refs.mainDiv.innerHTML = bodyTimer(convertMs(numberToCountTime));
+        if (numberToCountTime < 1000) {
+            clearInterval(intervaId);
+            refs.startBtn.disabled= false;
+        }
     }, 1000);
 
     // console.log(convertMs(numberForCountTime));
