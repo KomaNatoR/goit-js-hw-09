@@ -3,7 +3,6 @@ import flatpickr from "flatpickr";
 // Додатковий імпорт стилів
 import "flatpickr/dist/flatpickr.min.css";
 
-//  style="display: flex;flex-direction: column"
 const bodyTimer = ({ days, hours, minutes, seconds }) => `
   <div class="field">
     <span class="value" data-days>${String(days).length < 2? '0'+days:days}</span>
@@ -74,19 +73,16 @@ function convertMs(ms) {
 refs.startBtn.addEventListener('click', onStartClick);
 
 function onStartClick() {
-    toggleStartButton();
-    intervaId = setInterval(() => {
-        newData = new Date();
-        const numberToCountTime = userData - newData;
-        refs.mainDiv.innerHTML = bodyTimer(convertMs(numberToCountTime));
-        if (numberToCountTime < 1000) {
-            clearInterval(intervaId);
-            refs.startBtn.disabled= false;
-        }
-    }, 1000);
-
-    // console.log(convertMs(numberForCountTime));
-    // console.log(numberForCountTime);
+  toggleStartButton();
+  intervaId = setInterval(() => {
+      newData = new Date();
+      const numberToCountTime = userData - newData;
+      refs.mainDiv.innerHTML = bodyTimer(convertMs(numberToCountTime));
+      if (numberToCountTime < 1000) {
+          clearInterval(intervaId);
+          refs.startBtn.disabled= false;
+      }
+  }, 1000);
 };
 
 function toggleStartButton() {
