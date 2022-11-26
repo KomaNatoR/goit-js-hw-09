@@ -30,7 +30,7 @@ const refs = {
 let userData = 0;
 let newData = new Date();
 
-// =================================== НЕ МОЄ =============================
+// ---------------------- НЕ МОЄ --------------------------
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -70,7 +70,7 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 };
 
-// =================================== МОЄ ======================================
+// ------------------------------------ МОЄ ----------------------------------------
 refs.startBtn.addEventListener('click', onStartClick);
 
 function onStartClick() {
