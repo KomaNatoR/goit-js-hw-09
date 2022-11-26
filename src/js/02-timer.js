@@ -27,19 +27,19 @@ const refs = {
 };
 
 let userData = 0;
-let newData = new Date();
+let newData = Date.now();
 
 // ---------------------- НЕ МОЄ --------------------------
 const options = {
   enableTime: true,
   time_24hr: true,
-  defaultDate: new Date(),
+  defaultDate: Date.now(),
   minuteIncrement: 1,
     onClose(selectedDates) {
       userData = selectedDates[0].getTime();
       refs.startBtn.disabled = false;
 
-      if (userData < newData) {
+      if (userData <= newData && userData - newData >=0) {
         refs.startBtn.disabled = true;
         alert('Та ти успакойся!!!');
       }
@@ -74,14 +74,15 @@ refs.startBtn.addEventListener('click', onStartClick);
 
 function onStartClick() {
   toggleStartButton();
-  intervaId = setInterval(() => {
+  const intervalId = setInterval(() => {
       newData = new Date();
       const numberToCountTime = userData - newData;
       refs.mainDiv.innerHTML = bodyTimer(convertMs(numberToCountTime));
       if (numberToCountTime < 1000) {
-          clearInterval(intervaId);
+          clearInterval(intervalId);
           refs.startBtn.disabled= false;
       }
+      // console.log(numberToCountTime);
   }, 1000);
 };
 
