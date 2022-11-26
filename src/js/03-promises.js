@@ -5,4 +5,10 @@ function createPromise(position, delay) {
   } else {
     // Reject
   }
-}
+};
+
+const refs = {
+  form: document.querySelector('.form'),
+};
+
+refs.form.addEventListener('submit', createPromise);
