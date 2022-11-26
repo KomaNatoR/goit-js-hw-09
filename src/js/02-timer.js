@@ -1,7 +1,7 @@
 // // Описаний в документації
-// import flatpickr from "flatpickr";
+ import flatpickr from "flatpickr";
 // // Додатковий імпорт стилів
-// import "flatpickr/dist/flatpickr.min.css";
+import "flatpickr/dist/flatpickr.min.css";
 
 const bodyTimer = ({ days, hours, minutes, seconds }) => `
   <div class="field">
@@ -48,7 +48,7 @@ const options = {
       }
     },
 };
-const flatpickr = flatpickr("#datetime-picker", options);
+const flatpickr = flatpickr('#datetime-picker', options);
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
