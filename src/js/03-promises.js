@@ -1,12 +1,17 @@
+import Notiflix from 'notiflix';
+
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
-  setTimeout(() => {
-    if (shouldResolve) {
-      console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
-    } else {
-      console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-    }
-  }, delay);
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (shouldResolve) {
+        resolve(Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`));
+      } else {
+        reject(Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`));
+      }
+    }, delay);
+  });
 };
 
 const refs = {
@@ -25,7 +30,6 @@ function onButtonSubmit(e) {
     let position = i + 1;
     let changingDelay =Number(delay)+Number(step)*i;
 
-    createPromise(position,changingDelay);
+    createPromise(position,changingDelay).then(succes=>succes).catch(error=>error);
   }
-  
-}
+};
