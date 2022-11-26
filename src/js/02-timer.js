@@ -1,7 +1,7 @@
-// Описаний в документації
-import flatpickr from "flatpickr";
-// Додатковий імпорт стилів
-import "flatpickr/dist/flatpickr.min.css";
+// // Описаний в документації
+// import flatpickr from "flatpickr";
+// // Додатковий імпорт стилів
+// import "flatpickr/dist/flatpickr.min.css";
 
 const bodyTimer = ({ days, hours, minutes, seconds }) => `
   <div class="field">
