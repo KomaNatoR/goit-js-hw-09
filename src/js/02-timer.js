@@ -48,7 +48,7 @@ const options = {
       }
     },
 };
-const flatpickr = flatpickr('#datetime-picker', options);
+flatpickr('#datetime-picker', options);
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
