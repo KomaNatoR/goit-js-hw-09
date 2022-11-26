@@ -37,17 +37,16 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
     onClose(selectedDates) {
-        userData = selectedDates[0].getTime();
-        // newData = new Date();
-        if (userData < newData) {
-            refs.startBtn.disabled = true;
-            window.alert('Та ти успакойся!!!');
-        } else {
-            refs.startBtn.disabled= false;
-        };
+      userData = selectedDates[0].getTime();
+      refs.startBtn.disabled = false;
 
-    // console.log(this.defaultDate);
-    // console.log(selectedDates[0].getTime());
+      if (userData < newData) {
+        refs.startBtn.disabled = true;
+        alert('Та ти успакойся!!!');
+      }
+      if (userData > newData) {
+        alert('Я пишаюсь тобою!!!');
+      }
     },
 };
 const flatpickr = flatpickr("#datetime-picker", options);
