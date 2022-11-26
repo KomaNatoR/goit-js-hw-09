@@ -39,7 +39,7 @@ const options = {
       userData = selectedDates[0].getTime();
       refs.startBtn.disabled = false;
 
-      if (userData <= newData && userData - newData >=0) {
+      if (userData <= newData && userData - newData <=0) {
         refs.startBtn.disabled = true;
         alert('Та ти успакойся!!!');
       }
