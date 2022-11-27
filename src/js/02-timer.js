@@ -46,7 +46,7 @@ const options = {
         Notiflix.Notify.failure('Sorry!!!');
       }
       if (userData > newData) {
-        Notiflix.Notify.success('Я пишаюсь Вами))!!!');
+        Notiflix.Notify.success('Good))!!!');
       }
     },
 };
