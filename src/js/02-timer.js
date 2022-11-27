@@ -1,5 +1,6 @@
 // // Описаний в документації
- import flatpickr from "flatpickr";
+import flatpickr from "flatpickr";
+import Notiflix from 'notiflix';
 // // Додатковий імпорт стилів
 import "flatpickr/dist/flatpickr.min.css";
 
@@ -27,7 +28,7 @@ const refs = {
 };
 
 let userData = 0;
-let newData = Date.now();
+let newData = 0;
 
 // ---------------------- НЕ МОЄ --------------------------
 const options = {
@@ -38,13 +39,14 @@ const options = {
     onClose(selectedDates) {
       userData = selectedDates[0].getTime();
       refs.startBtn.disabled = false;
+      newData =Date.now();
 
-      if (userData <= newData && userData - newData <=0) {
+      if (userData <= newData) {
         refs.startBtn.disabled = true;
-        alert('Та ти успакойся!!!');
+        Notiflix.Notify.failure('Sorry!!!');
       }
       if (userData > newData) {
-        alert('Я пишаюсь тобою!!!');
+        Notiflix.Notify.success('Я пишаюсь Вами))!!!');
       }
     },
 };

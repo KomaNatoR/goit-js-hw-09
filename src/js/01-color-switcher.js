@@ -10,6 +10,7 @@ function desactiveButtonOnStart() {
     refs.btnStop.setAttribute('disabled', null);   
 };
 desactiveButtonOnStart();
+let intervalId = null;
 
 refs.btnSrart.addEventListener('click', onButtonClick);
 refs.btnStop.addEventListener('click', onButtonClick);

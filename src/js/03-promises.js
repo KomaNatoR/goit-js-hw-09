@@ -22,9 +22,11 @@ refs.form.addEventListener('submit', onButtonSubmit);
 
 function onButtonSubmit(e) {
   e.preventDefault();
+  
   const delay = e.currentTarget.elements.delay.value;
   const step = e.currentTarget.elements.step.value;
   const amount = e.currentTarget.elements.amount.value;
+  e.currentTarget.reset();
 
   for (let i = 0; i < amount; i += 1) {
     let position = i + 1;
@@ -32,4 +34,5 @@ function onButtonSubmit(e) {
 
     createPromise(position,changingDelay).then(succes=>succes).catch(error=>error);
   }
+  
 };
